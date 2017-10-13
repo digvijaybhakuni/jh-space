@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "site",
+            "otherEntityName": "site",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "system"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171013133730",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "system",
+    "jpaMetamodelFiltering": true,
+    "pagination": "no"
+}

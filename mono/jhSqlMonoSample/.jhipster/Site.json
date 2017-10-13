@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "system",
+            "otherEntityName": "system",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creationDateTime",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20171013134617",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "site",
+    "jpaMetamodelFiltering": true,
+    "pagination": "no"
+}
