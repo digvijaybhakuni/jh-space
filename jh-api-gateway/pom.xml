@@ -90,6 +90,8 @@
 
         <!-- Spring properties -->
         <spring-cloud.version>Dalston.SR2</spring-cloud.version>
+        <!-- Spring social -->
+        <spring-social-google.version>1.0.0.RELEASE</spring-social-google.version>
         <springfox.version>2.7.0</springfox.version>
         <swagger-codegen-maven-plugin.version>2.2.3</swagger-codegen-maven-plugin.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
@@ -438,6 +440,28 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-messaging</artifactId>
+        </dependency>
+        <!-- social -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-google</artifactId>
+            <version>${spring-social-google.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-facebook</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-twitter</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
     </dependencies>

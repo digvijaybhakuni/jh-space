@@ -19,7 +19,7 @@ public class PostDTO implements Serializable {
 
     private String content;
 
-    private Instant tags;
+    private Instant dateTime;
 
     public String getId() {
         return id;
@@ -45,12 +45,12 @@ public class PostDTO implements Serializable {
         this.content = content;
     }
 
-    public Instant getTags() {
-        return tags;
+    public Instant getDateTime() {
+        return dateTime;
     }
 
-    public void setTags(Instant tags) {
-        this.tags = tags;
+    public void setDateTime(Instant dateTime) {
+        this.dateTime = dateTime;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class PostDTO implements Serializable {
             "id=" + getId() +
             ", title='" + getTitle() + "'" +
             ", content='" + getContent() + "'" +
-            ", tags='" + getTags() + "'" +
+            ", dateTime='" + getDateTime() + "'" +
             "}";
     }
 }

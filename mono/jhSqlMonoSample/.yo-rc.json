@@ -1,0 +1,59 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "jh.mono.sqlsample"
+    },
+    "jhipsterVersion": "4.8.0",
+    "baseName": "jhSqlMonoSample",
+    "packageName": "jh.mono.sqlsample",
+    "packageFolder": "jh/mono/sqlsample",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": false,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSocialSignIn": true,
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "a9e835c272b42238d624a810867f37d6f9a4607e",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "yarn",
+    "applicationType": "monolith",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-docker",
+        "version": "2.2.0"
+      },
+      {
+        "name": "generator-jhipster-bootstrap-material-design",
+        "version": "3.5.1"
+      },
+      {
+        "name": "generator-jhipster-nav-element",
+        "version": "1.4.14"
+      },
+      {
+        "name": "generator-jhipster-db-helper",
+        "version": "0.1.0"
+      },
+      {
+        "name": "generator-jhipster-primeng",
+        "version": "0.0.86"
+      },
+      {
+        "name": "generator-jhipster-leaflet",
+        "version": "1.0.0"
+      }
+    ],
+    "enableTranslation": false
+  }
+}

@@ -19,7 +19,7 @@
             "fieldTypeBlobContent": "text"
         },
         {
-            "fieldName": "tags",
+            "fieldName": "dateTime",
             "fieldType": "Instant"
         }
     ],

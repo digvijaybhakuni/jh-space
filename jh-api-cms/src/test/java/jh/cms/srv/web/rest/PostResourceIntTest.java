@@ -47,8 +47,8 @@ public class PostResourceIntTest {
     private static final String DEFAULT_CONTENT = "AAAAAAAAAA";
     private static final String UPDATED_CONTENT = "BBBBBBBBBB";
 
-    private static final Instant DEFAULT_TAGS = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_TAGS = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    private static final Instant DEFAULT_DATE_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_DATE_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     @Autowired
     private PostRepository postRepository;
@@ -92,7 +92,7 @@ public class PostResourceIntTest {
         Post post = new Post()
             .title(DEFAULT_TITLE)
             .content(DEFAULT_CONTENT)
-            .tags(DEFAULT_TAGS);
+            .dateTime(DEFAULT_DATE_TIME);
         return post;
     }
 
@@ -119,7 +119,7 @@ public class PostResourceIntTest {
         Post testPost = postList.get(postList.size() - 1);
         assertThat(testPost.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testPost.getContent()).isEqualTo(DEFAULT_CONTENT);
-        assertThat(testPost.getTags()).isEqualTo(DEFAULT_TAGS);
+        assertThat(testPost.getDateTime()).isEqualTo(DEFAULT_DATE_TIME);
     }
 
     @Test
@@ -171,7 +171,7 @@ public class PostResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(post.getId())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT.toString())))
-            .andExpect(jsonPath("$.[*].tags").value(hasItem(DEFAULT_TAGS.toString())));
+            .andExpect(jsonPath("$.[*].dateTime").value(hasItem(DEFAULT_DATE_TIME.toString())));
     }
 
     @Test
@@ -186,7 +186,7 @@ public class PostResourceIntTest {
             .andExpect(jsonPath("$.id").value(post.getId()))
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
             .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT.toString()))
-            .andExpect(jsonPath("$.tags").value(DEFAULT_TAGS.toString()));
+            .andExpect(jsonPath("$.dateTime").value(DEFAULT_DATE_TIME.toString()));
     }
 
     @Test
@@ -207,7 +207,7 @@ public class PostResourceIntTest {
         updatedPost
             .title(UPDATED_TITLE)
             .content(UPDATED_CONTENT)
-            .tags(UPDATED_TAGS);
+            .dateTime(UPDATED_DATE_TIME);
         PostDTO postDTO = postMapper.toDto(updatedPost);
 
         restPostMockMvc.perform(put("/api/posts")
@@ -221,7 +221,7 @@ public class PostResourceIntTest {
         Post testPost = postList.get(postList.size() - 1);
         assertThat(testPost.getTitle()).isEqualTo(UPDATED_TITLE);
         assertThat(testPost.getContent()).isEqualTo(UPDATED_CONTENT);
-        assertThat(testPost.getTags()).isEqualTo(UPDATED_TAGS);
+        assertThat(testPost.getDateTime()).isEqualTo(UPDATED_DATE_TIME);
     }
 
     @Test

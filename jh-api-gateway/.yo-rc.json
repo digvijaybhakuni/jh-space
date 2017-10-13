@@ -20,7 +20,7 @@
     "messageBroker": false,
     "serviceDiscoveryType": "eureka",
     "buildTool": "maven",
-    "enableSocialSignIn": false,
+    "enableSocialSignIn": true,
     "enableSwaggerCodegen": true,
     "jwtSecretKey": "6eac33dfedb362f1867b58167b426bddbe080f9d",
     "clientFramework": "angularX",

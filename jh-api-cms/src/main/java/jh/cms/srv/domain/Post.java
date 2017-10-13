@@ -26,8 +26,8 @@ public class Post implements Serializable {
     @Field("content")
     private String content;
 
-    @Field("tags")
-    private Instant tags;
+    @Field("date_time")
+    private Instant dateTime;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public String getId() {
@@ -64,17 +64,17 @@ public class Post implements Serializable {
         this.content = content;
     }
 
-    public Instant getTags() {
-        return tags;
+    public Instant getDateTime() {
+        return dateTime;
     }
 
-    public Post tags(Instant tags) {
-        this.tags = tags;
+    public Post dateTime(Instant dateTime) {
+        this.dateTime = dateTime;
         return this;
     }
 
-    public void setTags(Instant tags) {
-        this.tags = tags;
+    public void setDateTime(Instant dateTime) {
+        this.dateTime = dateTime;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 
@@ -104,7 +104,7 @@ public class Post implements Serializable {
             "id=" + getId() +
             ", title='" + getTitle() + "'" +
             ", content='" + getContent() + "'" +
-            ", tags='" + getTags() + "'" +
+            ", dateTime='" + getDateTime() + "'" +
             "}";
     }
 }

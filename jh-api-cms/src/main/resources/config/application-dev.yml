@@ -34,10 +34,7 @@ spring:
     data:
         mongodb:
             uri: mongodb://localhost:27017
-            # host: localhost
             database: jhCMS
-            # username: admin
-            # password: admin
     mail:
         host: localhost
         port: 25
