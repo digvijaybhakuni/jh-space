@@ -34,20 +34,20 @@ describe('Component Tests', () => {
         });
 
         describe('baseName and subSystemName', () => {
-            it('should return the basename when it has no sub appSystem', () => {
+            it('should return the basename when it has no sub system', () => {
                 expect(comp.baseName('base')).toBe('base');
             });
 
             it('should return the basename when it has sub systems', () => {
-                expect(comp.baseName('base.subsystem.appSystem')).toBe('base');
+                expect(comp.baseName('base.subsystem.system')).toBe('base');
             });
 
-            it('should return the sub appSystem name', () => {
+            it('should return the sub system name', () => {
                 expect(comp.subSystemName('subsystem')).toBe('');
             });
 
             it('should return the subsystem when it has multiple keys', () => {
-                expect(comp.subSystemName('subsystem.subsystem.appSystem')).toBe(' - subsystem.appSystem');
+                expect(comp.subSystemName('subsystem.subsystem.system')).toBe(' - subsystem.system');
             });
         });
 
@@ -90,7 +90,7 @@ describe('Component Tests', () => {
             expect(service.transformHealthData(data)).toEqual(expected);
         });
 
-        it('should flatten health data with subsystems at level 1, main appSystem has no additional information', () => {
+        it('should flatten health data with subsystems at level 1, main system has no additional information', () => {
             const data = {
                 'status': 'UP',
                 'db': {
@@ -102,16 +102,16 @@ describe('Component Tests', () => {
                     'status': 'UP',
                     'error': 'mail.a.b.c'
                 },
-                'appSystem': {
+                'system': {
                     'status': 'DOWN',
                     'subsystem1': {
                         'status': 'UP',
-                        'property1': 'appSystem.subsystem1.property1'
+                        'property1': 'system.subsystem1.property1'
                     },
                     'subsystem2': {
                         'status': 'DOWN',
-                        'error': 'appSystem.subsystem1.error',
-                        'property2': 'appSystem.subsystem2.property2'
+                        'error': 'system.subsystem1.error',
+                        'property2': 'system.subsystem2.property2'
                     }
                 }
             };
@@ -130,25 +130,25 @@ describe('Component Tests', () => {
                     'status': 'UP'
                 },
                 {
-                    'name': 'appSystem.subsystem1',
+                    'name': 'system.subsystem1',
                     'status': 'UP',
                     'details': {
-                        'property1': 'appSystem.subsystem1.property1'
+                        'property1': 'system.subsystem1.property1'
                     }
                 },
                 {
-                    'name': 'appSystem.subsystem2',
-                    'error': 'appSystem.subsystem1.error',
+                    'name': 'system.subsystem2',
+                    'error': 'system.subsystem1.error',
                     'status': 'DOWN',
                     'details': {
-                        'property2': 'appSystem.subsystem2.property2'
+                        'property2': 'system.subsystem2.property2'
                     }
                 }
             ];
             expect(service.transformHealthData(data)).toEqual(expected);
         });
 
-        it('should flatten health data with subsystems at level 1, main appSystem has additional information', () => {
+        it('should flatten health data with subsystems at level 1, main system has additional information', () => {
             const data = {
                 'status': 'UP',
                 'db': {
@@ -160,17 +160,17 @@ describe('Component Tests', () => {
                     'status': 'UP',
                     'error': 'mail.a.b.c'
                 },
-                'appSystem': {
+                'system': {
                     'status': 'DOWN',
-                    'property1': 'appSystem.property1',
+                    'property1': 'system.property1',
                     'subsystem1': {
                         'status': 'UP',
-                        'property1': 'appSystem.subsystem1.property1'
+                        'property1': 'system.subsystem1.property1'
                     },
                     'subsystem2': {
                         'status': 'DOWN',
-                        'error': 'appSystem.subsystem1.error',
-                        'property2': 'appSystem.subsystem2.property2'
+                        'error': 'system.subsystem1.error',
+                        'property2': 'system.subsystem2.property2'
                     }
                 }
             };
@@ -189,32 +189,32 @@ describe('Component Tests', () => {
                     'status': 'UP'
                 },
                 {
-                    'name': 'appSystem',
+                    'name': 'system',
                     'status': 'DOWN',
                     'details': {
-                        'property1': 'appSystem.property1'
+                        'property1': 'system.property1'
                     }
                 },
                 {
-                    'name': 'appSystem.subsystem1',
+                    'name': 'system.subsystem1',
                     'status': 'UP',
                     'details': {
-                        'property1': 'appSystem.subsystem1.property1'
+                        'property1': 'system.subsystem1.property1'
                     }
                 },
                 {
-                    'name': 'appSystem.subsystem2',
-                    'error': 'appSystem.subsystem1.error',
+                    'name': 'system.subsystem2',
+                    'error': 'system.subsystem1.error',
                     'status': 'DOWN',
                     'details': {
-                        'property2': 'appSystem.subsystem2.property2'
+                        'property2': 'system.subsystem2.property2'
                     }
                 }
             ];
             expect(service.transformHealthData(data)).toEqual(expected);
         });
 
-        it('should flatten health data with subsystems at level 1, main appSystem has additional error', () => {
+        it('should flatten health data with subsystems at level 1, main system has additional error', () => {
             const data = {
                 'status': 'UP',
                 'db': {
@@ -226,17 +226,17 @@ describe('Component Tests', () => {
                     'status': 'UP',
                     'error': 'mail.a.b.c'
                 },
-                'appSystem': {
+                'system': {
                     'status': 'DOWN',
                     'error': 'show me',
                     'subsystem1': {
                         'status': 'UP',
-                        'property1': 'appSystem.subsystem1.property1'
+                        'property1': 'system.subsystem1.property1'
                     },
                     'subsystem2': {
                         'status': 'DOWN',
-                        'error': 'appSystem.subsystem1.error',
-                        'property2': 'appSystem.subsystem2.property2'
+                        'error': 'system.subsystem1.error',
+                        'property2': 'system.subsystem2.property2'
                     }
                 }
             };
@@ -255,23 +255,23 @@ describe('Component Tests', () => {
                     'status': 'UP'
                 },
                 {
-                    'name': 'appSystem',
+                    'name': 'system',
                     'error': 'show me',
                     'status': 'DOWN'
                 },
                 {
-                    'name': 'appSystem.subsystem1',
+                    'name': 'system.subsystem1',
                     'status': 'UP',
                     'details': {
-                        'property1': 'appSystem.subsystem1.property1'
+                        'property1': 'system.subsystem1.property1'
                     }
                 },
                 {
-                    'name': 'appSystem.subsystem2',
-                    'error': 'appSystem.subsystem1.error',
+                    'name': 'system.subsystem2',
+                    'error': 'system.subsystem1.error',
                     'status': 'DOWN',
                     'details': {
-                        'property2': 'appSystem.subsystem2.property2'
+                        'property2': 'system.subsystem2.property2'
                     }
                 }
             ];
